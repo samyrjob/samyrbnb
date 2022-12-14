@@ -1,0 +1,19 @@
+.home-button {
+  font-family: $body-font;
+  color: white;
+  background-color: $purple;
+  border-radius: 12px;
+  display: flex;
+  padding: 5px 25px;
+  justify-content: center;
+  width: 170px;
+  align-items: center;
+  font-size: 16px;
+  text-decoration: none;
+  height: 50px;
+  // position: absolute;
+  // top: 70%;
+  // left: 505px;
+}
+
+

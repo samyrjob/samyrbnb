@@ -1,0 +1,48 @@
+.footer-container {
+margin-top: auto;
+background-color: $dark-gray;
+width: 100%;
+height: 230px;
+display: flex;
+justify-content: center;
+align-items: center;
+  .footer-content {
+    margin: 130px 90px;
+    height: 100px;
+    width: 890px;
+    display: flex;
+    justify-content: space-between;
+    padding: 0px;
+
+    .footer-icons {
+
+      padding: 30px;
+      p {
+      color: $white;
+      font-style: italic;
+      }
+    }
+
+    .footer-names {
+      p {
+      color: $white;
+      font-size: 9px;
+      }
+    }
+  }
+}
+
+.footer-container .fa-brands {
+  color: $gray;
+}
+
+.footer-icons a {
+  opacity: 1;
+  text-decoration: none;
+  font-size: 25px;
+  padding: 0px 10px;
+}
+
+.footer-icons p {
+  padding: 0px 10px;
+}

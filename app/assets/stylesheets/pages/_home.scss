@@ -1,1 +1,21 @@
 // Specific CSS for your home-page
+
+.home-banner {
+width: 100%;
+height: 375px;
+background-image: url("home-banner.jpg");
+background-size: cover;
+background-position: center;
+// position: relative;
+display: flex;
+justify-content: center;
+align-items: center;
+}
+
+body{
+  min-height: 100vh;
+  margin: 0;
+
+  display: grid;
+  grid-template-rows: auto 1fr auto;
+}

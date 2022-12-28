@@ -1,0 +1,72 @@
+.title-index {
+  margin: 30px;
+}
+
+
+.search-wrapper {
+  display: flex;
+  flex-direction: column;
+  gap: .25rem;
+}
+
+
+input{
+  font-size: 1rem;
+}
+
+
+.flat-cards{
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+  gap: .75rem;
+  margin-top: 1rem;
+  padding: .5rem;
+}
+
+
+.card {
+  // border: 1px solid $gray;
+  box-shadow: rgba(100, 100, 111, 0.2) 0px 7px 29px 0px;
+  border-radius: 5px;
+  a {
+    text-decoration: none;
+  }
+}
+
+
+.card-index-body{
+  padding: .5rem;
+}
+
+
+.card-text-end{
+  padding: .5rem;
+  color: $dark-gray;
+}
+
+
+.card-index-title {
+  margin-bottom: .25rem;
+  color: $dark-gray;
+}
+
+.card-town-name {
+  margin-bottom: .25rem;
+  font-size: .8rem;
+  color: $dark-gray;
+}
+
+.hide {
+  display: none;
+}
+
+.me-1 {
+  // margin-left: ($spacer * 3) !important;
+  width: 30%;
+  margin: 30px 10px 30px auto;
+}
+
+
+.card-img {
+  overflow: hidden;
+}

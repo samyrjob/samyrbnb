@@ -1,0 +1,54 @@
+
+<div class="swiper mySwiper container">
+  <div class="swiper-wrapper content">
+  <% @flats.each do |flat|%>
+    <div class=" swiper-slide card-profile">
+      <div class="card-content">
+
+        <div class="image">
+          <%= cl_image_tag( flat.photo.key, :size => "150x150", :crop => "fill", :style =>  "border-radius: 50%; border: 3px solid white") %>
+        </div>
+
+        <div class="description">
+          <span class="name"><%= flat.name %></span>
+          <span class="town"><%= flat.town %></span>
+          <span class="price-a-day"> price a day : <%= flat.price_per_day %></span>
+        </div>
+
+        <div class="rating">
+          <i class="fa-solid fa-star"></i>
+          <i class="fa-solid fa-star"></i>
+          <i class="fa-solid fa-star"></i>
+          <i class="fa-solid fa-star"></i>
+          <i class="fa-solid fa-star"></i>
+        </div>
+
+      </div>
+    </div>
+    <% end %>
+  </div>
+      <div class="swiper-button-next"></div>
+      <div class="swiper-button-prev"></div>
+      <div class="swiper-pagination"></div>
+
+ <script src="https://cdn.jsdelivr.net/npm/swiper/swiper-bundle.min.js"></script>
+
+    <!-- Initialize Swiper -->
+    <script>
+      var swiper = new Swiper(".mySwiper", {
+        slidesPerView: 3,
+        spaceBetween: 30,
+        slidesPerGroup: 3,
+        loop: true,
+        loopFillGroupWithBlank: true,
+        pagination: {
+          el: ".swiper-pagination",
+          clickable: true,
+        },
+        navigation: {
+          nextEl: ".swiper-button-next",
+          prevEl: ".swiper-button-prev",
+        },
+      });
+    </script>
+</div>

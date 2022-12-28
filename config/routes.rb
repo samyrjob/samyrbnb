@@ -7,6 +7,7 @@ Rails.application.routes.draw do
   # root "articles#index"
 
   resource :profile, only: :show
+  resources :bookings, only: :show
 
   resources :flats, only: %i[index show] do
     resources :bookings, only: %i[new create]
@@ -14,11 +15,12 @@ Rails.application.routes.draw do
 
   namespace :owner do
     resources :flats, only: %i[new create edit update destroy]
-    resources :bookings, only: %i[] do
+    resources :bookings, only: [] do
       member do
-        get :accepte
+        get :accept
         get :decline
       end
     end
   end
+  
 end

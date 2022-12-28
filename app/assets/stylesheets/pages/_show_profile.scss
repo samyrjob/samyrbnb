@@ -1,0 +1,91 @@
+*{
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+
+}
+
+.card-profile .image {
+  height: 140px;
+  width: 140px;
+  padding: 3px;
+  background: $purple;
+  border-radius: 50%;
+}
+
+
+.content {
+  display: flex;
+  align-items: center;
+  height: 100vh;
+  justify-content: center;
+  background: $white;
+}
+
+.card-profile {
+  position: relative;
+  border-radius: 20px;
+  background: $white;
+  margin: 20px 0;
+  width: 280px;
+  height: 400px;
+}
+
+.card-profile::before{
+  content: "";
+  position: absolute;
+  height: 55%;
+  width: 100%;
+  background: $purple;
+  border-radius: 20px 20px 0 0;
+}
+
+.card-profile .card-content{
+  display: flex;
+  flex-direction: column;
+  padding: 30px;
+  align-items: center;
+  position: relative;
+  z-index: 100;
+}
+
+.card-profile .rating {
+  position: absolute;
+  top: 10PX;
+  right: 20px;
+}
+
+.card-profile .rating i {
+  color: $white;
+  margin-top: 10px;
+  opacity: 0.6;
+  transition: all 0.3s ease;
+  cursor: pointer;
+}
+
+.card-profile .rating i:hover {
+  opacity: 1;
+}
+
+.card-profile .description {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  margin-top: 10px;
+  color: $dark-gray;
+}
+
+
+.description .name {
+  font-size: 20px;
+  font-weight: 600;
+}
+
+.description .town {
+  font-size: 15px;
+  font-weight: 500;
+}
+
+.swiper {
+  width: 950px;
+}

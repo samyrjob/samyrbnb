@@ -1,1 +1,38 @@
+<h1 class="title-index"><strong>Our unique selection of flats</strong></h1>
 
+   <%# <div class="search-wrapper">
+    <label for="search">Search Flat</label>
+    <input type="search" id="search">
+    </div> %>
+<%= form_with url: flats_path, method: :get, class: "d-flex me-1" do %>
+  <%= text_field_tag :query,
+    params[:query],
+    class: "form-control",
+    placeholder: "Find a flat"
+  %>
+  <%= submit_tag "Search", class: "btn btn-info" %>
+<% end %>
+
+
+      <div class="flat-cards">
+        <% @flats.each do |flat| %>
+            <div class="card"> <%= link_to flat do %>
+              <%= cl_image_tag flat.photo.key, height: 200, crop: :fill, class:"card-img" %>
+              <div class="card-index-body">
+                <h3 class="card-index-title"><%= flat.name %></h3>
+                <h4 class ="card-town-name"><%= flat.town %></h4>
+              </div>
+              <div>
+                <h3 class="card-text-end"> <strong>€ <%= flat.price_per_day %></strong></h3>
+              </div>
+            <% end %>
+            </div>
+        <% end %>
+      </div>
+    </div>
+</div>
+
+<div style="width: 100%; height: 600px;"
+  data-controller="map"
+  data-map-markers-value="<%= @markers.to_json %>"
+  data-map-api-key-value="<%= ENV['MAPBOX_API_KEY'] %>"></div>

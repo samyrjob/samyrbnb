@@ -4,5 +4,18 @@
 
 import { application } from "./application"
 
+import DisplayBookingController from "./display_booking_controller"
+application.register("display-booking", DisplayBookingController)
+
 import HelloController from "./hello_controller"
 application.register("hello", HelloController)
+
+import MapController from "./map_controller"
+application.register("map", MapController)
+
+import TotalPriceController from "./total_price_controller"
+application.register("total-price", TotalPriceController)
+
+
+import PopupController from "./popup_controller"
+application.register("popup", PopupController)

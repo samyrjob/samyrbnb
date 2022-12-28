@@ -1,0 +1,62 @@
+<div class="main-container" data-controller="display-booking">
+  <div class= "container-flat-show">
+    <div class="card-flat">
+      <div class="img-card-elf">
+        <%= cl_image_tag @flat.photo.key, height: 300, width: 400, crop: :fill %>
+      </div>
+      <div class="card-flat-infos">
+        <div class="card-flat-infos-title">
+          <h2><%= @flat.name %></h2>
+        </div>
+        <div class="card-elves-infos-content">
+          <p><i class="fas fa-info-circle"></i> <%= @flat.description %></p>
+          <p><i class="fas fa-info-circle"></i> <%= @flat.town %></p>
+          <p><i class="fas fa-euro-sign"></i> <%= @flat.price_per_day %>€ / jour</p>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div class="container-form-booking <%= 'inactive' unless @booking.errors.any? %>" data-display-booking-target="form">
+  <% if user_signed_in? %>
+
+    <div class="form-booking">
+      <%= simple_form_for [@flat, @booking], data: { controller: "total-price", total_price_per_day_value: @flat.price_per_day } do |f| %>
+        <%= f.input :start_date, html5: true, input_html: { data: { total_price_target: "startdate", action: "total-price#computePrice" } }%>
+        <%= f.input :end_date, html5: true, input_html: { data: { total_price_target: "enddate", action: "total-price#computePrice" } }%>
+        <div class= container_total_price>
+          <div class="d-flex">
+            <%= f.button :submit, value: "Book", class: "btn btn btn-primary text-white px-3 py-2  fs-10 mt-3 mx-1"%>
+            <%= link_to "List of flats", flats_path, class: "btn btn-info px-3 py-2  fs-10 mt-3" %>
+          </div>
+          <div data-total-price-target="totalPriceDiv" class= price></div>
+        </div>
+      <% end %>
+    </div>
+
+    <% else %>
+      <div class="col pt-1" data-controller="popup">
+        <div class="d-flex">
+          <button class="btn btn-primary btn-lg" data-action="click->popup#panel" data-popup-target="button"> Book now! </button>
+          <%= link_to "Retour à la liste", flats_path, class: "btn btn-info" %>
+        </div>
+
+        <div href="#" class="yeahh d-none" data-popup-target="link">
+          <h2>Oups... You should be connected to book this fabulous flat</h2>
+          <div>
+            <a class="button-login" href="http://localhost:3000/users/sign_in">Log in now</a>
+            <button class="btn btn-primary" data-action="click->popup#reset"> Ok </button>
+          </div>
+        </div>
+        <div class="opaq opacity-50 d-none" data-popup-target="panel">
+        </div>
+      </div>
+    <%end%>
+  </div>
+</div>
+
+
+<div style="width: 100%; height: 600px;"
+  data-controller="map"
+  data-map-markers-value="<%= @markers.to_json %>"
+  data-map-api-key-value="<%= ENV['MAPBOX_API_KEY'] %>"></div>

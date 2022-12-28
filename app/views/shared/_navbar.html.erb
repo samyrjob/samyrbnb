@@ -4,8 +4,20 @@
   </div>
 
   <div class="navbar-content">
-  <div class = "flat-navbar"><p>Flats</p></div>
-  <div class= "sign-navbar"><p>Sign in</p></div>
+
+    <%= link_to "/flats" do %>
+      <div class = "flat-navbar"><p>Flats</p></div>
+    <% end %>
+
+    <% unless user_signed_in?%>
+      <%= link_to "/users/sign_in" do %>
+      <div class= "sign-navbar"><p>Sign in</p></div>
+      <% end %>
+    <% end %>
+
+
+
+
   </div>
 
   <div class="navbar-avatar">
